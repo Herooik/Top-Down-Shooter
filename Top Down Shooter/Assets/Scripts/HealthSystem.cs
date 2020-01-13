@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private float _health = 100f;
 
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         Destroy(gameObject);
     }

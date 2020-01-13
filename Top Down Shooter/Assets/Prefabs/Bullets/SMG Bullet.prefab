@@ -144,4 +144,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitEffect: {fileID: 6144415561054347683, guid: ab62c58ffdfe8dc4c854474144764223,
     type: 3}
-  _damage: 20
+  _weapon: {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e, type: 2}

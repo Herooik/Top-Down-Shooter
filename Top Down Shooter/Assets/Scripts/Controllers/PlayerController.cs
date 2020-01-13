@@ -12,13 +12,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _playerMovement;
     private Vector2 _mousePosition;
-    
-    void Update()
-    {
-        
-
-       
-    }
 
     private void FixedUpdate()
     {

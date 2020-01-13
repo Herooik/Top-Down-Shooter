@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletComponent : MonoBehaviour
 {
     [SerializeField] private GameObject _hitEffect;
-    [SerializeField] private float _damage;
+    [SerializeField] private Weapon _weapon;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -19,10 +19,10 @@ public class BulletComponent : MonoBehaviour
 
     private void DealDamage(Collision2D target)
     {
-        Enemy enemy = target.gameObject.GetComponent<Enemy>();
+        HealthSystem enemy = target.gameObject.GetComponent<HealthSystem>();
         if (enemy != null)
         {
-            enemy.TakeDamage(_damage);
+            enemy.TakeDamage(_weapon.damage);
         }
     }
 
