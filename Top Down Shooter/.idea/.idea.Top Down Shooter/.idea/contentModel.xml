@@ -10,12 +10,16 @@
           <e p="Weapon.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="BulletComponent.cs" t="Include" />
           <e p="Controllers" t="Include">
-            <e p="GunController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
           </e>
           <e p="HealthSystem.cs" t="Include" />
+          <e p="Weapon" t="Include">
+            <e p="BulletComponent.cs" t="Include" />
+            <e p="WeaponChange.cs" t="Include" />
+            <e p="WeaponReload.cs" t="Include" />
+            <e p="WeaponShoot.cs" t="Include" />
+          </e>
         </e>
         <e p="top-down-shooter-1" t="Include">
           <e p="FX" t="Include">

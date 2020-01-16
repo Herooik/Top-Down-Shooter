@@ -19,10 +19,10 @@ public class BulletComponent : MonoBehaviour
 
     private void DealDamage(Collision2D target)
     {
-        HealthSystem enemy = target.gameObject.GetComponent<HealthSystem>();
-        if (enemy != null)
+        HealthSystem targetObject = target.gameObject.GetComponent<HealthSystem>();
+        if (targetObject != null)
         {
-            enemy.TakeDamage(_weapon.damage);
+            targetObject.TakeDamage(_weapon.damage);
         }
     }
 

@@ -6,7 +6,9 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     public int damage;
-    public int ammo;
+    public int maxAmmo;
+    public int currentAmmo;
+    public float reloadTime;
     public float fireRate;
     public float bulletSpeed;
 
