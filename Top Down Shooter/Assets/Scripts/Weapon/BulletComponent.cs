@@ -14,7 +14,6 @@ public class BulletComponent : MonoBehaviour
         Destroy(bulletEfect, 0.5f);
         Destroy(gameObject);
         DealDamage(other);
-        
     }
 
     private void DealDamage(Collision2D target)
@@ -25,5 +24,4 @@ public class BulletComponent : MonoBehaviour
             targetObject.TakeDamage(_weapon.damage);
         }
     }
-
 }

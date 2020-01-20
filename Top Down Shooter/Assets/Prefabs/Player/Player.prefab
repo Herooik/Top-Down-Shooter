@@ -98,8 +98,10 @@ MonoBehaviour:
   _firePont: {fileID: 3289999108995693338}
   _weaponChange: {fileID: 241761310}
   _weaponReload: {fileID: 241761311}
+  _currentAmmoText: {fileID: 0}
   _bullet: {fileID: 0}
   _typeOfWeapon: 1
+  _isShooting: 0
 --- !u!114 &241761310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,10 +116,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponShoot: {fileID: 8248005799398934459}
   _weaponReload: {fileID: 241761311}
-  _weapon:
+  _currentAmmoText: {fileID: 0}
+  _weapons:
   - {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e, type: 2}
   - {fileID: 11400000, guid: 18f5b28c30bb9b14a9a940e69362df0b, type: 2}
-  _bulletPrefab:
+  _bullets:
   - {fileID: 2107663999576064843, guid: f1041861001a0a241abda462b1267633, type: 3}
   - {fileID: 2107663999576064843, guid: b15cff8144c54ca46ae4d31935289b10, type: 3}
 --- !u!114 &241761311
@@ -134,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponShoot: {fileID: 8248005799398934459}
   _weaponChange: {fileID: 241761310}
+  _currentAmmoText: {fileID: 0}
 --- !u!1 &1402808629632480797
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1.5
+  _moveSpeedWhileShooting: 1
   _rigidbody2D: {fileID: 1402808629742119436}
   _animator: {fileID: 8248005800834502752}
+  _weaponShoot: {fileID: 8248005799398934459}
 --- !u!1 &1402808630006043915
 GameObject:
   m_ObjectHideFlags: 0

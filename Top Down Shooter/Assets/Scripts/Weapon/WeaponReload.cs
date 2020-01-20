@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WeaponReload : MonoBehaviour
 {
     [SerializeField] private WeaponShoot weaponShoot;
     [SerializeField] private WeaponChange _weaponChange;
+    [SerializeField] private TextMeshProUGUI _currentAmmoText;
     
     private bool _isReloading = false;
 
     private void Awake()
     {
-        _weaponChange._weapon[0].currentAmmo = _weaponChange._weapon[0].maxAmmo;
+        _weaponChange._weapons[0].currentAmmo = _weaponChange._weapons[0].maxAmmo;
     }
 
     public bool CheckForAmmoAmount(int numberOfChoosenWeapon)
@@ -22,7 +24,7 @@ public class WeaponReload : MonoBehaviour
             return true;
         }
         
-        if (_weaponChange._weapon[numberOfChoosenWeapon - 1].currentAmmo <= 0)
+        if (_weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo <= 0)
         {
             StartCoroutine(Reload(weaponShoot._typeOfWeapon));
             return true;
@@ -35,10 +37,13 @@ public class WeaponReload : MonoBehaviour
     {
         _isReloading = true;
 
-        yield return new WaitForSeconds(_weaponChange._weapon[numberOfChoosenWeapon - 1].reloadTime);
+        yield return new WaitForSeconds(_weaponChange._weapons[numberOfChoosenWeapon - 1].reloadTime);
 
-        _weaponChange._weapon[numberOfChoosenWeapon - 1].currentAmmo =
-            _weaponChange._weapon[numberOfChoosenWeapon - 1].maxAmmo;
+        _weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo =
+            _weaponChange._weapons[numberOfChoosenWeapon - 1].maxAmmo;
+        
+        _currentAmmoText.text = "Ammo: " + _weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo + "/"
+                                + _weaponChange._weapons[numberOfChoosenWeapon - 1].maxAmmo;
 
         _isReloading = false;
     }

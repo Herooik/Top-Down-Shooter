@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 { 
     [SerializeField] private WeaponShoot weaponShoot;
     [SerializeField] private WeaponReload _weaponReload;
+    [SerializeField] private TextMeshProUGUI _currentAmmoText;
 
-    public Weapon[] _weapon;
-    public GameObject[] _bulletPrefab;
+    public Weapon[] _weapons;
+    public GameObject[] _bullets;
 
     private string _input;
     private int _numericInput;
 
     private void Awake()
     {
-        weaponShoot._bullet = _bulletPrefab[0];
+        weaponShoot._bullet = _bullets[0];
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class WeaponChange : MonoBehaviour
         _input = Input.inputString;
         int.TryParse(_input, out _numericInput);
 
-        if (_numericInput >= 1 && _numericInput <= _weapon.Length)
+        if (_numericInput >= 1 && _numericInput <= _weapons.Length)
         {
             SwitchWeapon(_numericInput);
 
@@ -39,10 +41,12 @@ public class WeaponChange : MonoBehaviour
         }
     }
 
-    private void SwitchWeapon(int element)
+    private void SwitchWeapon(int numberOfChoosenWeapon)
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = _weapon[element - 1].attachToBody;
+        gameObject.GetComponent<SpriteRenderer>().sprite = _weapons[numberOfChoosenWeapon - 1].attachToBody;
+        
+        _currentAmmoText.text = "Ammo: " + _weapons[numberOfChoosenWeapon - 1].currentAmmo + "/" + _weapons[numberOfChoosenWeapon - 1].maxAmmo;
 
-        weaponShoot._bullet = _bulletPrefab[element - 1];
+        weaponShoot._bullet = _bullets[numberOfChoosenWeapon - 1];
     }
 }
