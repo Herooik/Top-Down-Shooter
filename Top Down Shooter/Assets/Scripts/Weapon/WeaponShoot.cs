@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class WeaponShoot : MonoBehaviour
 {
-    [SerializeField] private Transform _firePont;
+    [SerializeField] private Transform _firePoint;
     [SerializeField] private WeaponChange _weaponChange;
     [SerializeField] private WeaponReload _weaponReload;
     [SerializeField] private TextMeshProUGUI _currentAmmoText;
@@ -58,8 +58,8 @@ public class WeaponShoot : MonoBehaviour
 
     private void InitializeShooting(int numberOfChoosenWeapon)
     {
-        GameObject bullet = Instantiate(_bullet, _firePont.position, _firePont.rotation);
+        GameObject bullet = Instantiate(_bullet, _firePoint.position, _firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(_firePont.up * -_weaponChange._weapons[numberOfChoosenWeapon - 1].bulletSpeed, ForceMode2D.Impulse);
+        rb.AddForce(_firePoint.up * -_weaponChange._weapons[numberOfChoosenWeapon - 1].bulletSpeed, ForceMode2D.Impulse);
     }
 }

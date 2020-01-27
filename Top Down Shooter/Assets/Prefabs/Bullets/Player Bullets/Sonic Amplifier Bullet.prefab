@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2107663999576064842}
   - component: {fileID: 676234780465954105}
   m_Layer: 0
-  m_Name: SMG Bullet
-  m_TagString: Bullet
+  m_Name: Sonic Amplifier Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 431877141007c8a43a55a98747d7bf44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b544adb1ee67a84ea9defcbc7f04a9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,14 +114,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.13, y: 0.13}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.13, y: 0.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -144,4 +144,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitEffect: {fileID: 6144415561054347683, guid: ab62c58ffdfe8dc4c854474144764223,
     type: 3}
-  _weapon: {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e, type: 2}
+  _weapon: {fileID: 11400000, guid: 18f5b28c30bb9b14a9a940e69362df0b, type: 2}
+  _tagObjectToDealDamage: Enemy

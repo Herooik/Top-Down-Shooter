@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   maxAmmo: 15
+  currentAmmo: 0
   reloadTime: 1
   fireRate: 5
-  bulletSpeed: 2
+  bulletSpeed: 10
   attachToBody: {fileID: 21300000, guid: c1f84bcd72e062e4e80f8471c6abafab, type: 3}
   image: {fileID: 21300000, guid: a12e3fae563e54a4aae126b8be84b11c, type: 3}
