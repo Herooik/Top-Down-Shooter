@@ -13,6 +13,7 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentAmmoText;
     
     [HideInInspector] public GameObject _bullet;
+    
     [HideInInspector] public int _typeOfWeapon = 1;
     private float _nextTimeToFire = 0f;
     [HideInInspector] public bool _isShooting = false;

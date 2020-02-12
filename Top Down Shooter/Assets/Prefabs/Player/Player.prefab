@@ -321,6 +321,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 1402808629742119436}
   _animator: {fileID: 8248005800834502752}
   _weaponShoot: {fileID: 8248005799398934459}
+  _aimTexture: {fileID: 0}
 --- !u!114 &7941355780720732875
 MonoBehaviour:
   m_ObjectHideFlags: 0
