@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8248005799398934458}
   - component: {fileID: 8248005799398934459}
   - component: {fileID: 241761310}
-  - component: {fileID: 241761311}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -97,10 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firePoint: {fileID: 3289999108995693338}
   _weaponChange: {fileID: 241761310}
-  _weaponReload: {fileID: 241761311}
-  _currentAmmoText: {fileID: 0}
+  _ammoSystem: {fileID: 814122074}
   _bullet: {fileID: 0}
-  _typeOfWeapon: 1
   _isShooting: 0
 --- !u!114 &241761310
 MonoBehaviour:
@@ -115,29 +112,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponShoot: {fileID: 8248005799398934459}
-  _weaponReload: {fileID: 241761311}
-  _currentAmmoText: {fileID: 0}
-  _weapons:
+  _weapon:
   - {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e, type: 2}
   - {fileID: 11400000, guid: 18f5b28c30bb9b14a9a940e69362df0b, type: 2}
-  _bullets:
+  _bullet:
   - {fileID: 2107663999576064843, guid: f1041861001a0a241abda462b1267633, type: 3}
   - {fileID: 2107663999576064843, guid: b15cff8144c54ca46ae4d31935289b10, type: 3}
---- !u!114 &241761311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967779085317897636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24ccf5663b6ebc14d9d43aa9a3b93bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponShoot: {fileID: 8248005799398934459}
-  _weaponChange: {fileID: 241761310}
-  _currentAmmoText: {fileID: 0}
+  _selectedWeapon: {fileID: 0}
 --- !u!1 &1402808629632480797
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +212,7 @@ GameObject:
   - component: {fileID: 1741788175}
   - component: {fileID: 1402808629742119437}
   - component: {fileID: 7941355780720732875}
+  - component: {fileID: 814122074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -321,7 +303,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 1402808629742119436}
   _animator: {fileID: 8248005800834502752}
   _weaponShoot: {fileID: 8248005799398934459}
-  _aimTexture: {fileID: 0}
+  _aimTexture: {fileID: 2800000, guid: 0de920991040e7546b8c6936f480c9ea, type: 3}
 --- !u!114 &7941355780720732875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +316,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c15b28668d684f97418dfdfbfa3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _maxHealth: 100
+  _healthBar: {fileID: 0}
+  _healthText: {fileID: 0}
+--- !u!114 &814122074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402808629742119438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e050272f30b4a45a5104346cc2702f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxAmmo: 150
+  _ammoBar: {fileID: 0}
+  _ammoText: {fileID: 0}
 --- !u!1 &1402808630006043915
 GameObject:
   m_ObjectHideFlags: 0

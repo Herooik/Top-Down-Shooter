@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         var cursorHotspot = new Vector2(_aimTexture.width / 2, _aimTexture.height / 2);
         Cursor.SetCursor(_aimTexture, cursorHotspot, CursorMode.Auto);
-        
+
         _basicMoveSpeed = _moveSpeed;
     }
 
@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.x = Input.GetAxisRaw("Horizontal");
         _playerMovement.y = Input.GetAxisRaw("Vertical");
+        
+        _playerMovement.Normalize();
 
         if (_playerMovement == new Vector2(0, 0))
             _animator.SetBool("isMoving", false);

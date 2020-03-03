@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponReload : MonoBehaviour
 {
+    /*
     [SerializeField] private WeaponShoot weaponShoot;
     [SerializeField] private WeaponChange _weaponChange;
     [SerializeField] private TextMeshProUGUI _currentAmmoText;
@@ -12,36 +13,36 @@ public class WeaponReload : MonoBehaviour
 
     private void Awake()
     {
-        _weaponChange._weapons[0].currentAmmo = _weaponChange._weapons[0].maxAmmo;
+        _weaponChange._selectedWeapon.currentAmmo = _weaponChange._selectedWeapon.maxAmmo;
     }
 
-    public bool CheckForAmmoAmount(int numberOfChoosenWeapon)
+    public bool CheckForAmmoAmount()
     {
         if (_isReloading) return true;
 
-        if (_weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo <= 0 ||
-            (Input.GetKeyDown(KeyCode.R) && _weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo !=
-            _weaponChange._weapons[numberOfChoosenWeapon - 1].maxAmmo))
+        if (_weaponChange._selectedWeapon.currentAmmo <= 0 ||
+            (Input.GetKeyDown(KeyCode.R) && _weaponChange._selectedWeapon.currentAmmo !=
+            _weaponChange._selectedWeapon.maxAmmo))
         {
-            StartCoroutine(Reload(weaponShoot._typeOfWeapon));
+            StartCoroutine(Reload());
             return true;
         }
 
         return false;
     }
 
-    private IEnumerator Reload(int numberOfChoosenWeapon)
+    private IEnumerator Reload()
     {
         _isReloading = true;
 
-        yield return new WaitForSeconds(_weaponChange._weapons[numberOfChoosenWeapon - 1].reloadTime);
+        yield return new WaitForSeconds(_weaponChange._selectedWeapon.reloadTime);
 
-        _weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo =
-            _weaponChange._weapons[numberOfChoosenWeapon - 1].maxAmmo;
+        _weaponChange._selectedWeapon.currentAmmo =
+            _weaponChange._selectedWeapon.maxAmmo;
 
-        _currentAmmoText.text = "Ammo: " + _weaponChange._weapons[numberOfChoosenWeapon - 1].currentAmmo + "/"
-                                + _weaponChange._weapons[numberOfChoosenWeapon - 1].maxAmmo;
+        _currentAmmoText.text = "Ammo: " + _weaponChange._selectedWeapon.currentAmmo + "/"
+                                + _weaponChange._selectedWeapon.maxAmmo;
 
         _isReloading = false;
-    }
+    } */
 }
