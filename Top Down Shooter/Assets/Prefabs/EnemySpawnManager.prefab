@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4735541646693672207}
   m_Layer: 0
   m_Name: EnemySpawnManager
-  m_TagString: Untagged
+  m_TagString: EnemySpawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bcaf774b044bf4da50e6fb46f72f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints:
+  spawnPoints:
   - {fileID: 4735541648191917751}
   - {fileID: 4735541647463185672}
   - {fileID: 4735541646949781767}
@@ -178,15 +178,15 @@ MonoBehaviour:
   - {fileID: 4735541646530653240}
   - {fileID: 4735541646538395004}
   - {fileID: 4735541646071088207}
-  _enemies:
+  enemiesToSpawn:
   - {fileID: 9208547878254278348, guid: 2c65b61ec6ee6d7428f9494525391120, type: 3}
-  _enemiesAmount: 2
-  _spawnInterval: 1
-  _waveInterval: 10
-  _waveNumberText: {fileID: 0}
-  _timeLeftToWaveText: {fileID: 0}
-  _enemyHealthSystem: {fileID: -8183778393420683200, guid: 2c65b61ec6ee6d7428f9494525391120,
-    type: 3}
+  - {fileID: 9208547878254278348, guid: b10d3043357ec9646aca2f402c399ae1, type: 3}
+  enemiesAmount: 5
+  enemySpawnInterval: 1
+  waveInterval: 10
+  waveNumberText: {fileID: 0}
+  timeLeftToWaveText: {fileID: 0}
+  _enemyCount: 0
 --- !u!1 &4735541646949781767
 GameObject:
   m_ObjectHideFlags: 0

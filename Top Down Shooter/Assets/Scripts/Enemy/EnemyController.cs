@@ -17,8 +17,11 @@ public class EnemyController : MonoBehaviour
 
      void Update()
     {
-        FollowPlayer();
-        LookAtPlayer();
+        if (_player != null)
+        {
+            FollowPlayer();
+            LookAtPlayer();
+        }
     }
 
     private void FollowPlayer()

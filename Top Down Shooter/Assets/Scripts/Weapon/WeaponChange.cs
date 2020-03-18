@@ -6,28 +6,31 @@ using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 { 
-    [SerializeField] private WeaponShoot weaponShoot;
-   // [SerializeField] private WeaponReload _weaponReload;
-   // [SerializeField] private TextMeshProUGUI _currentAmmoText;
-
-    [SerializeField] private Weapon[] _weapon;
-    [SerializeField] private GameObject[] _bullet;
-
+    [HideInInspector] public Sprite currentBulletSprite;
+    
     [HideInInspector] public Weapon _selectedWeapon;
+    public static WeaponChange instance;
+    
+    [SerializeField] private Weapon[] weapon;
+    [SerializeField] private SpriteRenderer attachToBodySpriteRender;
+    [SerializeField] private SpriteRenderer playerBulletSpriteRender;
+    [SerializeField] private Bullet[] bulletSprites;
 
     private string _input;
     private int _numericInput;
 
+    
+
     private void Awake()
     {
-        _selectedWeapon = _weapon[0];
-        weaponShoot._bullet = _bullet[0];
+        instance = this;
+
+        currentBulletSprite = bulletSprites[0].bulletImage;
+        _selectedWeapon = weapon[0];
     }
 
     private void Update()
     {
-        // if (_weaponReload.CheckForAmmoAmount()) return;
-
         GetNumericKeyInput();
     }
 
@@ -36,22 +39,23 @@ public class WeaponChange : MonoBehaviour
         _input = Input.inputString;
         int.TryParse(_input, out _numericInput);
 
-        if (_numericInput >= 1 && _numericInput <= _weapon.Length)
+        if (_numericInput >= 1 && _numericInput <=  weapon.Length)
         {
             SwitchWeapon(_numericInput);
-
-            //weaponShoot._typeOfWeapon = _numericInput;
         }
     }
 
     private void SwitchWeapon(int numberOfChoosenWeapon)
     {
-        _selectedWeapon = _weapon[numberOfChoosenWeapon - 1];
+        currentBulletSprite = bulletSprites[numberOfChoosenWeapon - 1].bulletImage;
         
-        gameObject.GetComponent<SpriteRenderer>().sprite = _selectedWeapon.attachToBodySprite;
-        
-       // _currentAmmoText.text = "Ammo: " + _selectedWeapon.currentAmmo + "/" + _selectedWeapon.maxAmmo;
+        _selectedWeapon = weapon[numberOfChoosenWeapon - 1];
 
-        weaponShoot._bullet = _bullet[numberOfChoosenWeapon - 1];
+        attachToBodySpriteRender.sprite = _selectedWeapon.attachToBodySprite;
+
+        playerBulletSpriteRender.sprite = currentBulletSprite;
+      
+        PlayerBulletPooler.Instance.ChangeInactiveObjectSprite(currentBulletSprite);
+
     }
 }

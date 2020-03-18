@@ -8,30 +8,37 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _spawnPoints;
-    [SerializeField] private GameObject[] _enemies;
-    [SerializeField] private int _enemiesAmount = 10;
+    public static EnemySpawnManager Instance;
+    
+    [SerializeField] private GameObject[] spawnPoints;
+    [SerializeField] private GameObject[] enemiesToSpawn;
+    [SerializeField] private int enemiesAmount = 10;
 
-    [SerializeField] private float _spawnInterval = 1f;
-    [SerializeField] private float _waveInterval = 10f;
+    [SerializeField] private float enemySpawnInterval = 1f;
+    [SerializeField] private float waveInterval = 10f;
 
-    [SerializeField] private TextMeshProUGUI _waveNumberText;
-    [SerializeField] private TextMeshProUGUI _timeLeftToWaveText;
+    [SerializeField] private TextMeshProUGUI waveNumberText;
+    [SerializeField] private TextMeshProUGUI timeLeftToWaveText;
 
     private bool _isSpawning;
     
     private float _timeLeftToWave;
     private float _waveNumber = 0;
 
-    [HideInInspector] public int _count;
+    [HideInInspector] public int _enemyCount;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         _isSpawning = false;
         
-        _waveNumberText.text = "Wave number: " + _waveNumber;
+        waveNumberText.text = "Wave number: " + _waveNumber;
         
-        _timeLeftToWave = _waveInterval;
+        _timeLeftToWave = waveInterval;
     }
 
     private void Update()
@@ -45,13 +52,17 @@ public class EnemySpawnManager : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") || _timeLeftToWave <= 0)
         {
-            _waveNumber++;
-            _waveNumberText.text = "Wave number: " + _waveNumber;
-            
-            _timeLeftToWave = _waveInterval;
-            _timeLeftToWaveText.gameObject.SetActive(false);
+           _waveNumber++;
+           waveNumberText.text = "Wave number: " + _waveNumber;
+           
+           _timeLeftToWave = waveInterval;
+           timeLeftToWaveText.gameObject.SetActive(false);
 
-            StartCoroutine(SpawnEnemies());
+           IncreaseEnemiesAmount();
+           
+           StartCoroutine(SpawnEnemies());
+           
+           Debug.Log("asd");
         }
     }
 
@@ -59,44 +70,15 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (!_isSpawning && AreEnemiesDead())
         {
-            _timeLeftToWaveText.gameObject.SetActive(true);
+            timeLeftToWaveText.gameObject.SetActive(true);
             _timeLeftToWave -= Time.deltaTime;
-           _timeLeftToWaveText.text = "Next wave in: " + _timeLeftToWave.ToString("F1");
+            timeLeftToWaveText.text = "Next wave in: " + _timeLeftToWave.ToString("F1");
         }
-    }
-
-    private IEnumerator SpawnEnemies()
-    {
-        int lastSpawnPoint = 0;
-        
-        _isSpawning = true;
-        
-        for (int i = 0; i < _enemiesAmount; i++)
-        {
-            int enemyToSpawn = Random.Range(0, _enemies.Length);
-            int spawnPoint = Random.Range(0, _spawnPoints.Length);
-
-            while (spawnPoint == lastSpawnPoint)
-            {
-                int newSpawnPoint = Random.Range(0, _spawnPoints.Length);
-                spawnPoint = newSpawnPoint;
-            }
-            
-            Instantiate(_enemies[enemyToSpawn], _spawnPoints[spawnPoint].transform.position, Quaternion.identity);
-            
-            lastSpawnPoint = spawnPoint;
-            
-            yield return new WaitForSeconds(_spawnInterval);
-
-            _count++;
-        }
-        
-        _isSpawning = false;
     }
 
     private bool AreEnemiesDead()
     {
-        if (_count <= 0)
+        if (_enemyCount <= 0)
         {
             return true;
         }
@@ -104,5 +86,58 @@ public class EnemySpawnManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void IncreaseEnemiesAmount()
+    {
+        if (_waveNumber >= 2)
+        {
+            enemiesAmount++;
+        }
+    }
+
+   private IEnumerator SpawnEnemies()
+   {
+       int lastSpawnPoint = 0;
+       
+       _isSpawning = true;
+       
+       for (int i = 0; i < enemiesAmount; i++)
+       {
+           int enemyToSpawn = Random.Range(0, enemiesToSpawn.Length);
+           
+           var spawnPoint = PickSpawnPoint(lastSpawnPoint);
+           PoolEnemy(enemyToSpawn, spawnPoint);
+           lastSpawnPoint = spawnPoint;
+           
+           yield return new WaitForSeconds(enemySpawnInterval);
+       }
+       
+       _isSpawning = false;
+   } 
+
+    private void PoolEnemy(int enemyToSpawn, int spawnPoint)
+    {
+        var enemy = EnemyPooler.Instance.GetPooledObject(enemiesToSpawn[enemyToSpawn]);
+
+        if (enemy != null)
+        {
+            enemy.transform.position = spawnPoints[spawnPoint].transform.position;
+            enemy.SetActive(true);
+            _enemyCount++;
+        }
+    }
+
+    private int PickSpawnPoint(int lastSpawnPoint)
+    {
+        int spawnPoint = Random.Range(0, spawnPoints.Length);
+
+        while (spawnPoint == lastSpawnPoint)
+        {
+            int newSpawnPoint = Random.Range(0, spawnPoints.Length);
+            spawnPoint = newSpawnPoint;
+        }
+
+        return spawnPoint;
     }
 }

@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class PlayerHealthSystem : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
-    private float _currentHealth;
     [SerializeField] private Image _healthBar;
     [SerializeField] private TextMeshProUGUI _healthText;
+
+    private float _currentHealth;
 
     private void Start()
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +11,12 @@ public class EnemyShoot : MonoBehaviour
 
     [SerializeField] private Transform _firePoint;
     
-    [SerializeField] private GameObject _bullet;
-    
+   // [SerializeField] private GameObject _bullet;
+
     void Start()
     {
         _timeBetweenShots = _startTimeBetweenShots;
     }
-
     
     void Update()
     {
@@ -24,7 +24,13 @@ public class EnemyShoot : MonoBehaviour
         {
             _timeBetweenShots = _startTimeBetweenShots;
             
-            GameObject bullet = Instantiate(_bullet, _firePoint.position, _firePoint.rotation);
+            var bullet = ObjectPooler.Instance.GetPooledObject("Enemy Bullet");
+            if (bullet != null)
+            {
+                bullet.transform.position = _firePoint.position;
+                bullet.transform.rotation = _firePoint.rotation;
+                bullet.SetActive(true);
+            }
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(_firePoint.up * -_bulletSpeed, ForceMode2D.Impulse);
         }
@@ -32,8 +38,5 @@ public class EnemyShoot : MonoBehaviour
         {
             _timeBetweenShots -= Time.deltaTime;
         }
-        
-        
-       
     }
 }

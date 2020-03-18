@@ -8,13 +8,6 @@ public class EnemyHealthSystem : MonoBehaviour
     [SerializeField] private float _maxHealth = 100f;
     private float _currentHealth;
 
-    private EnemySpawnManager _EnemySpawnManager;
-
-    private void Awake()
-    {
-        _EnemySpawnManager = FindObjectOfType<EnemySpawnManager>();
-    }
-
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -22,8 +15,9 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(_currentHealth);
         _currentHealth -= damage;
+        
+        Debug.Log(_currentHealth);
 
         if (_currentHealth <= 0)
         {
@@ -33,7 +27,23 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
-       _EnemySpawnManager._count--;
-       Destroy(gameObject);
+        EnemySpawnManager.Instance._enemyCount--;
+       
+       CreateExplosion();
+
+       gameObject.SetActive(false);
+       
+       _currentHealth = _maxHealth;
+    }
+
+    private void CreateExplosion()
+    {
+         var bulletEffect = ObjectPooler.Instance.GetPooledObject("Enemy Explosion");
+
+        if (bulletEffect != null)
+        {
+            bulletEffect.transform.position = transform.position;
+            bulletEffect.SetActive(true);
+        }  
     }
 }

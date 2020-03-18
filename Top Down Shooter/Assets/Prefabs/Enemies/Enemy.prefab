@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9208547878254278337
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9208547878254278348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.982, y: -0.918, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9208547878215936734}
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9208547878254278348}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adb8031fba1726b47b06e46dcc7b086a, type: 3}
   m_Name: 
@@ -387,7 +387,6 @@ MonoBehaviour:
   _startTimeBetweenShots: 2
   _bulletSpeed: 2
   _firePoint: {fileID: 4689652695448840152}
-  _bullet: {fileID: 2107663999576064843, guid: 07fc08360d9a74842a284a76d7f92e6c, type: 3}
 --- !u!114 &-8183778393420683200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a3047afae9d6d4a8d4f1aee095e78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &9208547879692313405
 GameObject:
   m_ObjectHideFlags: 0
