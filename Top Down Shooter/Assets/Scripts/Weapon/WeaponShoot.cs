@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class WeaponShoot : MonoBehaviour
 {
-    [HideInInspector] public GameObject _bullet;
     [HideInInspector] public bool isShooting = false;
     
     [SerializeField] private Transform firePoint;
@@ -43,16 +42,16 @@ public class WeaponShoot : MonoBehaviour
 
     private void InitializeShooting()
     {
-       var bullet = PlayerBulletPooler.Instance.GetPooledObject();
+       var bullet = PlayerBulletPool.Instance.GetPooledObject();
 
        if (bullet != null)
        {
            bullet.transform.position = firePoint.transform.position;
-           bullet.transform.rotation = firePoint.transform.rotation;
+           bullet.transform.rotation = firePoint.rotation;
            bullet.SetActive(true);
        }
 
-        var rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * -weaponChange._selectedWeapon.bulletSpeed, ForceMode2D.Impulse);
+       var rb = bullet.GetComponent<Rigidbody2D>();
+       rb.AddForce(firePoint.up * -weaponChange._selectedWeapon.bulletSpeed, ForceMode2D.Impulse);
     }
 }

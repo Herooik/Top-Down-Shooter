@@ -7,27 +7,26 @@ using UnityEngine.UI;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100f;
-    [SerializeField] private Image _healthBar;
-    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private float maxHealth = 200f;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private TextMeshProUGUI healthText;
 
-    private float _currentHealth;
+    [HideInInspector] public float currentHealth;
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
-        _healthText.text = _currentHealth + "/" + _maxHealth;
+        currentHealth = maxHealth;
+
+        UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
+        currentHealth -= damage;
 
-        _healthBar.fillAmount = _currentHealth / _maxHealth;
+        UpdateHealthBar();
 
-        _healthText.text = _currentHealth + "/" + _maxHealth;
-
-        if (_currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -37,6 +36,28 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
-    
+
+    public void HealPlayer(float healAmount)
+    {
+        var healthMissing = maxHealth - currentHealth;
+
+        if (healthMissing < healAmount)
+        {
+            currentHealth += healthMissing;
+        }
+        else
+        {
+            
+            currentHealth += healAmount;
+        }
+
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / maxHealth;
+
+        healthText.text = currentHealth + "/" + maxHealth;
+    }
 }

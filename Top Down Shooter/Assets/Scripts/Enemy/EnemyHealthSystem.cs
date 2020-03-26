@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private float maxHealth = 200f;
     private float _currentHealth;
 
-    private void Start()
+    private void OnEnable()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
-        
-        Debug.Log(_currentHealth);
 
         if (_currentHealth <= 0)
         {
@@ -27,18 +25,18 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
+        CreateExplosion();
+        
         EnemySpawnManager.Instance._enemyCount--;
-       
-       CreateExplosion();
 
-       gameObject.SetActive(false);
-       
-       _currentHealth = _maxHealth;
+        gameObject.SetActive(false);
+        
+        EnemyDropSystem.Instance.DropMedkit(transform.position);
     }
 
     private void CreateExplosion()
     {
-         var bulletEffect = ObjectPooler.Instance.GetPooledObject("Enemy Explosion");
+        var bulletEffect = EnemyExplosionPool.Instance.GetPooledObject();
 
         if (bulletEffect != null)
         {

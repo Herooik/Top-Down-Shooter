@@ -5,38 +5,37 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    [SerializeField] private float _timeBetweenShots = 1f;
-    [SerializeField] private float _startTimeBetweenShots = 2f;
-    [SerializeField] private float _bulletSpeed;
+    [SerializeField] private float timeBetweenShots = 1f;
+    [SerializeField] private float startTimeBetweenShots = 2f;
+    [SerializeField] private float bulletSpeed;
 
-    [SerializeField] private Transform _firePoint;
-    
-   // [SerializeField] private GameObject _bullet;
+    [SerializeField] private Transform firePoint;
 
     void Start()
     {
-        _timeBetweenShots = _startTimeBetweenShots;
+        timeBetweenShots = startTimeBetweenShots;
     }
     
     void Update()
     {
-        if (_timeBetweenShots <= 0)
+        if (timeBetweenShots <= 0)
         {
-            _timeBetweenShots = _startTimeBetweenShots;
-            
-            var bullet = ObjectPooler.Instance.GetPooledObject("Enemy Bullet");
+            timeBetweenShots = startTimeBetweenShots;
+
+            var bullet = EnemyBulletPool.Instance.GetPooledObject();
             if (bullet != null)
             {
-                bullet.transform.position = _firePoint.position;
-                bullet.transform.rotation = _firePoint.rotation;
-                bullet.SetActive(true);
+                bullet.transform.position = firePoint.position;
+                bullet.transform.rotation = firePoint.rotation;
+                bullet.gameObject.SetActive(true);
             }
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(_firePoint.up * -_bulletSpeed, ForceMode2D.Impulse);
+
+            var rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * -bulletSpeed, ForceMode2D.Impulse);
         }
         else
         {
-            _timeBetweenShots -= Time.deltaTime;
+            timeBetweenShots -= Time.deltaTime;
         }
     }
 }

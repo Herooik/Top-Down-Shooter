@@ -20,11 +20,18 @@
           </e>
           <e p="Game Manager" t="Include">
             <e p="CameraFollow.cs" t="Include" />
-            <e p="EnemyPooler.cs" t="Include" />
+            <e p="EnemyDropSystem.cs" t="Include" />
             <e p="EnemySpawnManager.cs" t="Include" />
-            <e p="ObjectPooler.cs" t="Include" />
-            <e p="PlayerBulletPooler.cs" t="Include" />
           </e>
+          <e p="Object Pool" t="Include">
+            <e p="EnemyBulletPool.cs" t="Include" />
+            <e p="EnemyExplosionPool.cs" t="Include" />
+            <e p="EnemyPooler.cs" t="Include" />
+            <e p="GenericObjectPool.cs" t="Include" />
+            <e p="MedkitDropPool.cs" t="Include" />
+            <e p="PlayerBulletPool.cs" t="Include" />
+          </e>
+          <e p="PickUpMedkitSystem.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="AmmoSystem.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />

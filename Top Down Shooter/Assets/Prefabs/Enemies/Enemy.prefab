@@ -378,15 +378,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9208547878254278348}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adb8031fba1726b47b06e46dcc7b086a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBetweenShots: 1
-  _startTimeBetweenShots: 2
-  _bulletSpeed: 2
-  _firePoint: {fileID: 4689652695448840152}
+  timeBetweenShots: 1
+  startTimeBetweenShots: 2
+  bulletSpeed: 1
+  firePoint: {fileID: 4689652695448840152}
 --- !u!114 &-8183778393420683200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a3047afae9d6d4a8d4f1aee095e78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
 --- !u!1 &9208547879692313405
 GameObject:
   m_ObjectHideFlags: 0

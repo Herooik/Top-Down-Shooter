@@ -55,7 +55,7 @@ public class WeaponChange : MonoBehaviour
 
         playerBulletSpriteRender.sprite = currentBulletSprite;
       
-        PlayerBulletPooler.Instance.ChangeInactiveObjectSprite(currentBulletSprite);
+        PlayerBulletPool.Instance.ChangeInactiveObjectSprite(currentBulletSprite);
 
     }
 }

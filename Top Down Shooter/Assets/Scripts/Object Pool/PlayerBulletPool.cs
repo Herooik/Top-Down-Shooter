@@ -12,9 +12,9 @@ public class BulletPoolItem
     public GameObject objectContainer;
 }
 
-public class PlayerBulletPooler : MonoBehaviour
+public class PlayerBulletPool : MonoBehaviour
 {
-    public static PlayerBulletPooler Instance;
+    public static PlayerBulletPool Instance;
     
     [SerializeField] private List<BulletPoolItem> itemsToPool;
     
@@ -37,7 +37,6 @@ public class PlayerBulletPooler : MonoBehaviour
         
         foreach (var item in itemsToPool)
         {
-
             for (int i = 0; i < item.amountToPool; i++)
             {
                 var obj = Instantiate(item.objectToPool, item.objectContainer.transform);
@@ -79,7 +78,6 @@ public class PlayerBulletPooler : MonoBehaviour
             {
                 if (!_pooledObjects[i].activeInHierarchy)
                 {
-                    Debug.Log(_pooledObjects[i]);
                     _pooledObjects[i].gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
                 }
             }

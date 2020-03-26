@@ -61,8 +61,6 @@ public class EnemySpawnManager : MonoBehaviour
            IncreaseEnemiesAmount();
            
            StartCoroutine(SpawnEnemies());
-           
-           Debug.Log("asd");
         }
     }
 
