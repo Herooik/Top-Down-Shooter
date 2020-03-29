@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MedkitDropPool : GenericObjectPool<PickUpMedkitSystem>
+public class MedkitDropPool : GenericObjectPool<Medkit>
 {
 }

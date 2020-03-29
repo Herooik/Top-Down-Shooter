@@ -7,7 +7,12 @@ using Random = UnityEngine.Random;
 
 public class EnemyDropSystem : MonoBehaviour
 {
+    [Header("Medkit Drop Parameteres")]
     [SerializeField] private float medkitDropRate = 60f;
+
+    [Header("Ammo Drop Parameteres")]
+    [SerializeField] private int minEnergyDrop = 2;
+    [SerializeField] private int maxEnergyDrop = 10;
 
     public static EnemyDropSystem Instance;
 
@@ -35,13 +40,21 @@ public class EnemyDropSystem : MonoBehaviour
         }
     }
 
-    public void DropEnergy()
+    public void DropEnergy(Vector3 enemyPosition)
     {
-        
+        var energyAmount = Random.Range(minEnergyDrop, maxEnergyDrop);
+
+        for (int i = 0; i < energyAmount; i++)
+        {
+            var energy = AmmoDropPool.Instance.GetPooledObject();
+            energy.gameObject.SetActive(true);
+
+            energy.transform.position = enemyPosition;
+        }
     }
 
     public void DropGold()
     {
-        
+
     }
 }

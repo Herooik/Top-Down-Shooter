@@ -12,8 +12,7 @@ public class DisableAfterTime : MonoBehaviour
     {
         StartCoroutine(Destroy(gameObject, lifeTime));
     }
-
-
+    
     IEnumerator Destroy(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);

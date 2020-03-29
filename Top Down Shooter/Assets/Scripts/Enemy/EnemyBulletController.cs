@@ -2,7 +2,7 @@
 
 public class EnemyBulletController : MonoBehaviour
 {
-    private float weaponDamage;
+    private float _weaponDamage;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,9 +10,9 @@ public class EnemyBulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            weaponDamage = WeaponChange.instance._selectedWeapon.damage;
+            _weaponDamage = WeaponChange.instance._selectedWeapon.damage;
             
-            ReferenceHolder.Instance.PlayerHealthSystem.TakeDamage(weaponDamage);
+            ReferenceHolder.Instance.PlayerHealthSystem.TakeDamage(_weaponDamage);
         }
     }
 }

@@ -7,7 +7,7 @@ public class EnemyHealthSystem : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 200f;
     private float _currentHealth;
-
+    
     private void OnEnable()
     {
         _currentHealth = maxHealth;
@@ -27,11 +27,12 @@ public class EnemyHealthSystem : MonoBehaviour
     {
         CreateExplosion();
         
-        EnemySpawnManager.Instance._enemyCount--;
+        EnemySpawnManager.Instance.enemyCount--;
 
         gameObject.SetActive(false);
         
         EnemyDropSystem.Instance.DropMedkit(transform.position);
+        EnemyDropSystem.Instance.DropEnergy(transform.position);
     }
 
     private void CreateExplosion()

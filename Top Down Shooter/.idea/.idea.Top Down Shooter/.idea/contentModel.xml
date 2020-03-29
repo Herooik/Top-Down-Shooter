@@ -19,11 +19,12 @@
             <e p="EnemyShoot.cs" t="Include" />
           </e>
           <e p="Game Manager" t="Include">
-            <e p="CameraFollow.cs" t="Include" />
+            <e p="CameraFollower.cs" t="Include" />
             <e p="EnemyDropSystem.cs" t="Include" />
             <e p="EnemySpawnManager.cs" t="Include" />
           </e>
           <e p="Object Pool" t="Include">
+            <e p="AmmoDropPool.cs" t="Include" />
             <e p="EnemyBulletPool.cs" t="Include" />
             <e p="EnemyExplosionPool.cs" t="Include" />
             <e p="EnemyPooler.cs" t="Include" />
@@ -31,12 +32,16 @@
             <e p="MedkitDropPool.cs" t="Include" />
             <e p="PlayerBulletPool.cs" t="Include" />
           </e>
-          <e p="PickUpMedkitSystem.cs" t="Include" />
+          <e p="Pick Up" t="Include">
+            <e p="Medkit.cs" t="Include" />
+            <e p="PickUpEnergy.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
-            <e p="AmmoSystem.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+            <e p="PlayerEnergySystem.cs" t="Include" />
             <e p="PlayerHealthSystem.cs" t="Include" />
           </e>
+          <e p="PuttingObjectInCircle.cs" t="Include" />
           <e p="ReferenceHolder.cs" t="Include" />
           <e p="Weapon" t="Include">
             <e p="PlayerBulletController.cs" t="Include" />

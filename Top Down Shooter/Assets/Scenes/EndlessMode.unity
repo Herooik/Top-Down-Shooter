@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 496914768}
   - component: {fileID: 496914767}
   m_Layer: 0
-  m_Name: Enemy Drop Manager
+  m_Name: Enemy Drop Items Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -266,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   medkitDropRate: 0
+  minEnergyDrop: 2
+  maxEnergyDrop: 10
 --- !u!4 &496914768
 Transform:
   m_ObjectHideFlags: 0
@@ -280,6 +282,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500203334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1402808630541507451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e050272f30b4a45a5104346cc2702f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9004bac1065a8499c9a1e4eaaacf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 861052995}
+  player: {fileID: 861052995}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3516,6 +3530,22 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1559395274}
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: _ammoBar
+      value: 
+      objectReference: {fileID: 1796206883}
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: _ammoText
+      value: 
+      objectReference: {fileID: 1128219579}
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 1796206883}
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: energyText
+      value: 
+      objectReference: {fileID: 1128219579}
     - target: {fileID: 1402808629742119427, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3571,14 +3601,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: _ammoBar
+    - target: {fileID: 8248005799398934459, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
+        type: 3}
+      propertyPath: playerAmmoSystem
       value: 
-      objectReference: {fileID: 1796206883}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: _ammoText
+      objectReference: {fileID: 500203334}
+    - target: {fileID: 8248005799398934459, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
+        type: 3}
+      propertyPath: playerEnergySystem
       value: 
-      objectReference: {fileID: 1128219579}
+      objectReference: {fileID: 500203334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
 --- !u!1001 &4669007163252243540
@@ -3649,10 +3681,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 563406989, guid: 3793966beb5aeb1498b5aa75ed24d394, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 1966523475005382004, guid: e7443894976db5e46bbb9f0744364e6c,
-        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3793966beb5aeb1498b5aa75ed24d394, type: 3}
 --- !u!1001 &4735541646897324799
@@ -3735,7 +3766,7 @@ PrefabInstance:
     - target: {fileID: 4735541646693672207, guid: fb28fd77c20875c4a80c15b91f069ed4,
         type: 3}
       propertyPath: enemiesAmount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb28fd77c20875c4a80c15b91f069ed4, type: 3}
@@ -3750,6 +3781,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9278722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5572064234819312262, guid: 3c9751ea94974d04f946f145c337dcd0,
         type: 3}
@@ -3855,6 +3901,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064234073981106, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnergyBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064234841797230, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnergyBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572064235511857398, guid: 3c9751ea94974d04f946f145c337dcd0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnergyText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9751ea94974d04f946f145c337dcd0, type: 3}

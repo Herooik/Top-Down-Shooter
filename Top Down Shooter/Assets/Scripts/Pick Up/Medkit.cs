@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpMedkitSystem : MonoBehaviour
+public class Medkit : MonoBehaviour
 {
-    private PlayerHealthSystem playerHealthSystem;
     [SerializeField] private float healAmount = 50;
+    private PlayerHealthSystem _playerHealthSystem;
 
     private void Awake()
     {
-        playerHealthSystem = FindObjectOfType<PlayerHealthSystem>();
+        _playerHealthSystem = FindObjectOfType<PlayerHealthSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-           playerHealthSystem.HealPlayer(healAmount);
+           _playerHealthSystem.HealPlayer(healAmount);
            
            gameObject.SetActive(false);
             

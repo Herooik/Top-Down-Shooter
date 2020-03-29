@@ -12,6 +12,7 @@ public class EnemySpawnManager : MonoBehaviour
     
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private GameObject[] enemiesToSpawn;
+    
     [SerializeField] private int enemiesAmount = 10;
 
     [SerializeField] private float enemySpawnInterval = 1f;
@@ -25,7 +26,7 @@ public class EnemySpawnManager : MonoBehaviour
     private float _timeLeftToWave;
     private float _waveNumber = 0;
 
-    [HideInInspector] public int _enemyCount;
+    [HideInInspector] public int enemyCount;
 
     private void Awake()
     {
@@ -76,14 +77,12 @@ public class EnemySpawnManager : MonoBehaviour
 
     private bool AreEnemiesDead()
     {
-        if (_enemyCount <= 0)
+        if (enemyCount <= 0)
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 
     private void IncreaseEnemiesAmount()
@@ -122,7 +121,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             enemy.transform.position = spawnPoints[spawnPoint].transform.position;
             enemy.SetActive(true);
-            _enemyCount++;
+            enemyCount++;
         }
     }
 

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 2f;
-    [SerializeField] private float _stoppingDistance = 0.5f;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float stoppingDistance = 0.5f;
 
      private Transform _player;
 
@@ -26,9 +26,9 @@ public class EnemyController : MonoBehaviour
 
     private void FollowPlayer()
     {
-       if (Vector2.Distance(transform.position, _player.position) >= _stoppingDistance)
+       if (Vector2.Distance(transform.position, _player.position) >= stoppingDistance)
        {
-           transform.position = Vector2.MoveTowards(transform.position, _player.position, _moveSpeed * Time.deltaTime);
+           transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
        }
     }
 

@@ -11,7 +11,7 @@ public class WeaponShoot : MonoBehaviour
     
     [SerializeField] private Transform firePoint;
     [SerializeField] private WeaponChange weaponChange;
-    [SerializeField] private AmmoSystem ammoSystem;
+    [SerializeField] private PlayerEnergySystem playerEnergySystem;
     
     private float _nextTimeToFire = 0f;
     
@@ -29,7 +29,7 @@ public class WeaponShoot : MonoBehaviour
             
             _nextTimeToFire = Time.time + 1f / weaponChange._selectedWeapon.fireRate;
             
-            ammoSystem.AbsorbAmmo(weaponChange._selectedWeapon.ammoConsumption);
+            playerEnergySystem.AbsorbAmmo(weaponChange._selectedWeapon.ammoConsumption);
 
             InitializeShooting();
         }
