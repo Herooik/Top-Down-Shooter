@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Medkit : MonoBehaviour
 {
+    [SerializeField] private PlaySoundSystem playSoundSystem;
     [SerializeField] private float healAmount = 50;
+    
     private PlayerHealthSystem _playerHealthSystem;
 
     private void Awake()
@@ -19,9 +21,9 @@ public class Medkit : MonoBehaviour
         {
            _playerHealthSystem.HealPlayer(healAmount);
            
+           playSoundSystem.PlaySound();
+           
            gameObject.SetActive(false);
-            
-            // play pick up medkit sound 
         }
     }
 }

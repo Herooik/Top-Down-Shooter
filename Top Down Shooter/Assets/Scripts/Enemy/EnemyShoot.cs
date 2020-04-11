@@ -18,24 +18,34 @@ public class EnemyShoot : MonoBehaviour
     
     void Update()
     {
+        CheckTimeBetweenShoot();
+    }
+
+    private void CheckTimeBetweenShoot()
+    {
         if (timeBetweenShots <= 0)
         {
             timeBetweenShots = startTimeBetweenShots;
 
-            var bullet = EnemyBulletPool.Instance.GetPooledObject();
-            if (bullet != null)
-            {
-                bullet.transform.position = firePoint.position;
-                bullet.transform.rotation = firePoint.rotation;
-                bullet.gameObject.SetActive(true);
-            }
-
-            var rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * -bulletSpeed, ForceMode2D.Impulse);
+            InitializeBullet();
         }
         else
         {
             timeBetweenShots -= Time.deltaTime;
         }
+    }
+
+    private void InitializeBullet()
+    {
+        var bullet = EnemyBulletPool.Instance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = firePoint.rotation;
+            bullet.gameObject.SetActive(true);
+        }
+
+        var rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * -bulletSpeed, ForceMode2D.Impulse);
     }
 }

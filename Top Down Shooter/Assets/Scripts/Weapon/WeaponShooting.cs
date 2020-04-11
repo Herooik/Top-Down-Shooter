@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponShoot : MonoBehaviour
+public class WeaponShooting : MonoBehaviour
 {
     [HideInInspector] public bool isShooting = false;
     
@@ -18,10 +18,10 @@ public class WeaponShoot : MonoBehaviour
 
     void Update()
     {
-        Shooting();
+        Shoot();
     }
 
-    private void Shooting()
+    private void Shoot()
     {
         if (Input.GetButton("Fire1") && Time.time >= _nextTimeToFire)
         {
@@ -29,9 +29,9 @@ public class WeaponShoot : MonoBehaviour
             
             _nextTimeToFire = Time.time + 1f / weaponChange._selectedWeapon.fireRate;
             
-            playerEnergySystem.AbsorbAmmo(weaponChange._selectedWeapon.ammoConsumption);
+            playerEnergySystem.AbsorbEnergy(weaponChange._selectedWeapon.ammoConsumption);
 
-            InitializeShooting();
+            InitializeShoot();
         }
 
         if (Input.GetButtonUp("Fire1"))
@@ -40,7 +40,7 @@ public class WeaponShoot : MonoBehaviour
         }
     }
 
-    private void InitializeShooting()
+    private void InitializeShoot()
     {
        var bullet = PlayerBulletPool.Instance.GetPooledObject();
 

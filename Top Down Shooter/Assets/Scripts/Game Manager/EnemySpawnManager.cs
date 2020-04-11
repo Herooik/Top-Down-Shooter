@@ -8,15 +8,14 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public static EnemySpawnManager Instance;
+    public static int EnemyCount;
     
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private GameObject[] enemiesToSpawn;
     
     [SerializeField] private int enemiesAmount = 10;
-
     [SerializeField] private float enemySpawnInterval = 1f;
-    [SerializeField] private float waveInterval = 10f;
+    [SerializeField] private int waveInterval = 10;
 
     [SerializeField] private TextMeshProUGUI waveNumberText;
     [SerializeField] private TextMeshProUGUI timeLeftToWaveText;
@@ -25,13 +24,6 @@ public class EnemySpawnManager : MonoBehaviour
     
     private float _timeLeftToWave;
     private float _waveNumber = 0;
-
-    [HideInInspector] public int enemyCount;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     private void Start()
     {
@@ -77,7 +69,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private bool AreEnemiesDead()
     {
-        if (enemyCount <= 0)
+        if (EnemyCount <= 0)
         {
             return true;
         }
@@ -112,6 +104,19 @@ public class EnemySpawnManager : MonoBehaviour
        
        _isSpawning = false;
    } 
+   
+   private int PickSpawnPoint(int lastSpawnPoint)
+   {
+       int spawnPoint = Random.Range(0, spawnPoints.Length);
+
+       while (spawnPoint == lastSpawnPoint)
+       {
+           int newSpawnPoint = Random.Range(0, spawnPoints.Length);
+           spawnPoint = newSpawnPoint;
+       }
+
+       return spawnPoint;
+   }
 
     private void PoolEnemy(int enemyToSpawn, int spawnPoint)
     {
@@ -121,20 +126,9 @@ public class EnemySpawnManager : MonoBehaviour
         {
             enemy.transform.position = spawnPoints[spawnPoint].transform.position;
             enemy.SetActive(true);
-            enemyCount++;
+            EnemyCount++;
         }
     }
 
-    private int PickSpawnPoint(int lastSpawnPoint)
-    {
-        int spawnPoint = Random.Range(0, spawnPoints.Length);
-
-        while (spawnPoint == lastSpawnPoint)
-        {
-            int newSpawnPoint = Random.Range(0, spawnPoints.Length);
-            spawnPoint = newSpawnPoint;
-        }
-
-        return spawnPoint;
-    }
+    
 }

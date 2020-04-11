@@ -23,7 +23,7 @@ public class DisableAfterTime : MonoBehaviour
     {
         if (spriteRender != null)
         {
-            spriteRender.sprite = WeaponChange.instance.currentBulletSprite;
+            spriteRender.sprite = WeaponChange.Instance.currentBulletSprite;
         }
     }
 }

@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PickUpEnergy : MonoBehaviour
+public class Energy : MonoBehaviour
 {
+    [SerializeField] private PlaySoundSystem playSoundSystem;
     [SerializeField] private float energyAmount = 3f;
     private PlayerEnergySystem _playerEnergySystem;
 
@@ -19,10 +20,10 @@ public class PickUpEnergy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _playerEnergySystem.GiveEnergy(energyAmount);
+            
+            playSoundSystem.PlaySound();
            
             gameObject.SetActive(false);
-            
-            // play pick up ammo sound 
         }
     }
 }

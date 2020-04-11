@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoDropPool : GenericObjectPool<PickUpEnergy>
+public class AmmoDropPool : GenericObjectPool<Energy>
 {
 }

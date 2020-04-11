@@ -8,22 +8,25 @@ using Random = UnityEngine.Random;
 public class EnemyDropSystem : MonoBehaviour
 {
     [Header("Medkit Drop Parameteres")]
-    [SerializeField] private float medkitDropRate = 60f;
+    [SerializeField] private float medkitSpawnProbability = 0.6f;
 
     [Header("Ammo Drop Parameteres")]
     [SerializeField] private int minEnergyDrop = 2;
     [SerializeField] private int maxEnergyDrop = 10;
 
-    public static EnemyDropSystem Instance;
+    public static EnemyDropSystem Instance { get; private set; }
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     public void DropMedkit(Vector3 enemyPosition)
     {
-        if (Random.Range(0, 100) > medkitDropRate)
+        if(Random.value < medkitSpawnProbability)
         {
             PrepareMedkit(enemyPosition);
         }
@@ -36,6 +39,7 @@ public class EnemyDropSystem : MonoBehaviour
         if (medkit != null)
         {
             medkit.transform.position = enemyPosition;
+            
             medkit.gameObject.SetActive(true);
         }
     }
@@ -47,14 +51,10 @@ public class EnemyDropSystem : MonoBehaviour
         for (int i = 0; i < energyAmount; i++)
         {
             var energy = AmmoDropPool.Instance.GetPooledObject();
-            energy.gameObject.SetActive(true);
-
+            
             energy.transform.position = enemyPosition;
+            
+            energy.gameObject.SetActive(true);
         }
-    }
-
-    public void DropGold()
-    {
-
     }
 }

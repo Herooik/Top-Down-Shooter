@@ -21,9 +21,9 @@ public class PlayerEnergySystem : MonoBehaviour
         energyText.text = currentEnergy + "/" + maxEnergy;
     }
 
-    public void AbsorbAmmo(int ammoConsumption)
+    public void AbsorbEnergy(int energyConsumption)
     {
-        currentEnergy -= ammoConsumption;
+        currentEnergy -= energyConsumption;
         
         energyBar.fillAmount = currentEnergy / maxEnergy;
         

@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyBehaviourController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float stoppingDistance = 0.5f;
 
-     private Transform _player;
+    private Transform _player;
 
-     private void Start()
-     {
-         _player = GameObject.FindGameObjectWithTag("Player").transform;
-     }
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
-     void Update()
+    private void Update()
     {
         if (_player != null)
         {
@@ -26,10 +26,11 @@ public class EnemyController : MonoBehaviour
 
     private void FollowPlayer()
     {
-       if (Vector2.Distance(transform.position, _player.position) >= stoppingDistance)
-       {
-           transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
-       }
+        if (Vector2.Distance(transform.position, _player.position) >= stoppingDistance)
+        {
+            transform.position = Vector2.MoveTowards
+                (transform.position, _player.position, moveSpeed * Time.deltaTime);
+        }
     }
 
     private void LookAtPlayer()

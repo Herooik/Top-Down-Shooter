@@ -14,7 +14,7 @@ public class EnemyPoolItem
 
 public class EnemyPooler : MonoBehaviour
 {
-    public static EnemyPooler Instance;
+    public static EnemyPooler Instance { get; private set; }
     
     [SerializeField] private List<EnemyPoolItem> itemsToPool;
     

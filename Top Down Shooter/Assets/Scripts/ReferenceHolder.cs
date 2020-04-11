@@ -7,10 +7,13 @@ public class ReferenceHolder : MonoBehaviour
 {
     public PlayerHealthSystem PlayerHealthSystem;
 
-    public static ReferenceHolder Instance;
+    public static ReferenceHolder Instance { get; private set; }
 
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 }

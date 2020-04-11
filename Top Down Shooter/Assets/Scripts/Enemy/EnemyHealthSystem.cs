@@ -25,9 +25,9 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
-        CreateExplosion();
+        InitializeDeathVFX();
         
-        EnemySpawnManager.Instance.enemyCount--;
+        EnemySpawnManager.EnemyCount--;
 
         gameObject.SetActive(false);
         
@@ -35,14 +35,14 @@ public class EnemyHealthSystem : MonoBehaviour
         EnemyDropSystem.Instance.DropEnergy(transform.position);
     }
 
-    private void CreateExplosion()
+    private void InitializeDeathVFX()
     {
-        var bulletEffect = EnemyExplosionPool.Instance.GetPooledObject();
+        var deathVFX = EnemyExplosionPool.Instance.GetPooledObject();
 
-        if (bulletEffect != null)
+        if (deathVFX != null)
         {
-            bulletEffect.transform.position = transform.position;
-            bulletEffect.SetActive(true);
+            deathVFX.transform.position = transform.position;
+            deathVFX.SetActive(true);
         }  
     }
 }

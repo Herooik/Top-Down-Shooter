@@ -183,7 +183,7 @@ MonoBehaviour:
   moveSpeedWhileShooting: 1
   newRigidbody2D: {fileID: 1402808629742119436}
   animator: {fileID: 8248005800834502752}
-  weaponShoot: {fileID: 8248005799398934459}
+  weaponShooting: {fileID: 8248005799398934459}
   aimTexture: {fileID: 2800000, guid: 0de920991040e7546b8c6936f480c9ea, type: 3}
 --- !u!114 &7941355780720732875
 MonoBehaviour:
@@ -197,10 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c15b28668d684f97418dfdfbfa3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 200
-  _healthBar: {fileID: 0}
-  _healthText: {fileID: 0}
-  _currentHealth: 200
+  maxHealth: 200
+  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
+  currentHealth: 0
 --- !u!114 &814122074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,9 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e050272f30b4a45a5104346cc2702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxAmmo: 150
-  _ammoBar: {fileID: 0}
-  _ammoText: {fileID: 0}
+  maxEnergy: 150
+  energyBar: {fileID: 0}
+  energyText: {fileID: 0}
+  currentEnergy: 0
 --- !u!1 &1402808630006043915
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 241761310}
     - target: {fileID: 1508732764269311878, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
-      propertyPath: ammoSystem
+      propertyPath: playerEnergySystem
       value: 
       objectReference: {fileID: 814122074}
     m_RemovedComponents: []

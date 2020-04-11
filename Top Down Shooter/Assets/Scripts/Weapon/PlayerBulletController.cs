@@ -1,12 +1,11 @@
-﻿using System;
+﻿                                                                using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBulletController : MonoBehaviour
 {
-    private float weaponDamage;
-
+    private float _weaponDamage;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,9 +13,9 @@ public class PlayerBulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            weaponDamage = WeaponChange.instance._selectedWeapon.damage;
+            _weaponDamage = WeaponChange.Instance._selectedWeapon.damage;
 
-            other.gameObject.GetComponent<EnemyHealthSystem>().TakeDamage(weaponDamage);
+            other.gameObject.GetComponent<EnemyHealthSystem>().TakeDamage(_weaponDamage);
         }
     }
 }

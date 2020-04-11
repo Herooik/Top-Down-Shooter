@@ -1,23 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PuttingObjectInCircle : MonoBehaviour
 {
     [SerializeField] private float radiusAmmoDrop = 0.5f;
     [SerializeField] private float moveSpeed = 2f;
+    
     private Vector3 _targetPos;
+
+    private bool _posWasSet = false;
 
     private void Start()
     {
         _targetPos = RandomCircle(transform.position, radiusAmmoDrop);
+        _posWasSet = true;
+    }
+
+    private void OnEnable()
+    {
+        if (_posWasSet)
+        {
+            _targetPos = RandomCircle(transform.position, radiusAmmoDrop);
+        }
     }
 
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, _targetPos, Time.deltaTime * moveSpeed);
     }
-    
+
     Vector3 RandomCircle(Vector3 center, float radius)
     {
         float ang = Random.value * 360;

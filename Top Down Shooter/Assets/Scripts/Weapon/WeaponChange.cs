@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 { 
-    [HideInInspector] public Sprite currentBulletSprite;
-    
-    [HideInInspector] public Weapon _selectedWeapon;
-    public static WeaponChange instance;
+    public Sprite currentBulletSprite { get; private set; }
+    public Weapon _selectedWeapon { get; private set; }
+    public static WeaponChange Instance { get; private set; }
     
     [SerializeField] private Weapon[] weapon;
     [SerializeField] private SpriteRenderer attachToBodySpriteRender;
@@ -18,13 +17,14 @@ public class WeaponChange : MonoBehaviour
 
     private string _input;
     private int _numericInput;
-
     
-
     private void Awake()
     {
-        instance = this;
-
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        
         currentBulletSprite = bulletSprites[0].bulletImage;
         _selectedWeapon = weapon[0];
     }
@@ -37,6 +37,7 @@ public class WeaponChange : MonoBehaviour
     private void GetNumericKeyInput()
     {
         _input = Input.inputString;
+        
         int.TryParse(_input, out _numericInput);
 
         if (_numericInput >= 1 && _numericInput <=  weapon.Length)
@@ -55,7 +56,7 @@ public class WeaponChange : MonoBehaviour
 
         playerBulletSpriteRender.sprite = currentBulletSprite;
       
-        PlayerBulletPool.Instance.ChangeInactiveObjectSprite(currentBulletSprite);
+        PlayerBulletPool.Instance.ChangeInactiveBulletSprite(currentBulletSprite);
 
     }
 }

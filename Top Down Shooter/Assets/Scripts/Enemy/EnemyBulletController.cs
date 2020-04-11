@@ -10,7 +10,7 @@ public class EnemyBulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            _weaponDamage = WeaponChange.instance._selectedWeapon.damage;
+            _weaponDamage = WeaponChange.Instance._selectedWeapon.damage;
             
             ReferenceHolder.Instance.PlayerHealthSystem.TakeDamage(_weaponDamage);
         }

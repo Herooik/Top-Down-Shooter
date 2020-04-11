@@ -181,12 +181,12 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 9208547878254278348, guid: 2c65b61ec6ee6d7428f9494525391120, type: 3}
   - {fileID: 9208547878254278348, guid: b10d3043357ec9646aca2f402c399ae1, type: 3}
-  enemiesAmount: 5
+  enemiesAmount: 1
   enemySpawnInterval: 1
   waveInterval: 10
   waveNumberText: {fileID: 0}
   timeLeftToWaveText: {fileID: 0}
-  _enemyCount: 0
+  enemyCount: 0
 --- !u!1 &4735541646949781767
 GameObject:
   m_ObjectHideFlags: 0

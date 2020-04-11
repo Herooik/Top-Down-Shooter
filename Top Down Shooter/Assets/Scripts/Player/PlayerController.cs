@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D newRigidbody2D;
     [SerializeField] private Animator animator;
-    [SerializeField] private WeaponShoot weaponShoot;
+    [SerializeField] private WeaponShooting weaponShooting;
 
     [SerializeField] private Texture2D aimTexture;
 
@@ -18,10 +18,15 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        var cursorHotspot = new Vector2(aimTexture.width / 2, aimTexture.height / 2);
-        Cursor.SetCursor(aimTexture, cursorHotspot, CursorMode.Auto);
+        SetCursor();
 
         _basicMoveSpeed = moveSpeed;
+    }
+
+    private void SetCursor()
+    {
+        var cursorHotspot = new Vector2(aimTexture.width / 2, aimTexture.height / 2);
+        Cursor.SetCursor(aimTexture, cursorHotspot, CursorMode.Auto);
     }
 
     private void FixedUpdate()
@@ -44,19 +49,27 @@ public class PlayerController : MonoBehaviour
         _playerMovement.Normalize();
 
         if (_playerMovement == new Vector2(0, 0))
+        {
             animator.SetBool("isMoving", false);
+        }
         else
+        {
             animator.SetBool("isMoving", true);
-
+        }
+        
         newRigidbody2D.MovePosition(newRigidbody2D.position + _playerMovement * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void SlowDownMovement()
     {
-        if (weaponShoot.isShooting)
+        if (weaponShooting.isShooting)
+        {
             moveSpeed = moveSpeedWhileShooting;
+        }
         else
+        {
             moveSpeed = _basicMoveSpeed;
+        }
     }
 
     private void PlayerAiming()

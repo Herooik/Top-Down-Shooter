@@ -236,64 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c15b28668d684f97418dfdfbfa3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &496914766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 496914768}
-  - component: {fileID: 496914767}
-  m_Layer: 0
-  m_Name: Enemy Drop Items Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &496914767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496914766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56baf965c31efea4a9472c6592860052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medkitDropRate: 0
-  minEnergyDrop: 2
-  maxEnergyDrop: 10
---- !u!4 &496914768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496914766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &500203334 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1402808630541507451}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e050272f30b4a45a5104346cc2702f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,21 +3449,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7941355780720732875, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
         type: 3}
-      propertyPath: _healthBar
-      value: 
-      objectReference: {fileID: 136554464}
-    - target: {fileID: 7941355780720732875, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-        type: 3}
-      propertyPath: _healthText
-      value: 
-      objectReference: {fileID: 1559395274}
-    - target: {fileID: 7941355780720732875, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-        type: 3}
-      propertyPath: _maxHealth
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7941355780720732875, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 136554464}
@@ -3530,22 +3457,6 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1559395274}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: _ammoBar
-      value: 
-      objectReference: {fileID: 1796206883}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: _ammoText
-      value: 
-      objectReference: {fileID: 1128219579}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: energyBar
-      value: 
-      objectReference: {fileID: 1796206883}
-    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
-      propertyPath: energyText
-      value: 
-      objectReference: {fileID: 1128219579}
     - target: {fileID: 1402808629742119427, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3601,16 +3512,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8248005799398934459, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-        type: 3}
-      propertyPath: playerAmmoSystem
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: energyBar
       value: 
-      objectReference: {fileID: 500203334}
-    - target: {fileID: 8248005799398934459, guid: 5e087c0475648f54d9d8e6b3a8227cd2,
-        type: 3}
-      propertyPath: playerEnergySystem
+      objectReference: {fileID: 1796206883}
+    - target: {fileID: 814122074, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
+      propertyPath: energyText
       value: 
-      objectReference: {fileID: 500203334}
+      objectReference: {fileID: 1128219579}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e087c0475648f54d9d8e6b3a8227cd2, type: 3}
 --- !u!1001 &4669007163252243540
@@ -3680,9 +3589,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 563406989, guid: 3793966beb5aeb1498b5aa75ed24d394, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 870513167, guid: 3793966beb5aeb1498b5aa75ed24d394, type: 3}
+      propertyPath: m_Name
+      value: Energy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3793966beb5aeb1498b5aa75ed24d394, type: 3}
@@ -3763,11 +3672,6 @@ PrefabInstance:
       propertyPath: timeLeftToWaveText
       value: 
       objectReference: {fileID: 5572064234388882256}
-    - target: {fileID: 4735541646693672207, guid: fb28fd77c20875c4a80c15b91f069ed4,
-        type: 3}
-      propertyPath: enemiesAmount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb28fd77c20875c4a80c15b91f069ed4, type: 3}
 --- !u!1001 &5572064234388882255
@@ -3781,21 +3685,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.9278722
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572064234841797228, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5572064234819312262, guid: 3c9751ea94974d04f946f145c337dcd0,
         type: 3}
@@ -3902,21 +3791,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5572064234073981106, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Name
-      value: EnergyBackground
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572064234841797230, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Name
-      value: EnergyBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572064235511857398, guid: 3c9751ea94974d04f946f145c337dcd0,
-        type: 3}
-      propertyPath: m_Name
-      value: EnergyText
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9751ea94974d04f946f145c337dcd0, type: 3}
 --- !u!114 &5572064234388882256 stripped
@@ -3931,3 +3805,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &7998515627834091299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7998515628160349805, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Drop Items Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998515628160349811, guid: 07c04d402ff128c44977508141b0185a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07c04d402ff128c44977508141b0185a, type: 3}

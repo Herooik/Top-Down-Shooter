@@ -14,7 +14,7 @@ public class BulletPoolItem
 
 public class PlayerBulletPool : MonoBehaviour
 {
-    public static PlayerBulletPool Instance;
+    public static PlayerBulletPool Instance { get; private set; }
     
     [SerializeField] private List<BulletPoolItem> itemsToPool;
     
@@ -70,7 +70,7 @@ public class PlayerBulletPool : MonoBehaviour
         return null;
     }
 
-    public void ChangeInactiveObjectSprite(Sprite newSprite)
+    public void ChangeInactiveBulletSprite(Sprite newSprite)
     {
         foreach (var item in itemsToPool)
         {

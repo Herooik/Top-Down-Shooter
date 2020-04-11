@@ -11,7 +11,7 @@ public class PlayerHealthSystem : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
 
-    [HideInInspector] public float currentHealth;
+    private float currentHealth;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void HealPlayer(float healAmount)
