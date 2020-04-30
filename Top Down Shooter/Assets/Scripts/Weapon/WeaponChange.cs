@@ -6,14 +6,16 @@ using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 { 
-    public Sprite currentBulletSprite { get; private set; }
-    public Weapon _selectedWeapon { get; private set; }
+    public Sprite CurrentBulletSprite { get; private set; }
+    public Weapon SelectedWeapon { get; private set; }
     public static WeaponChange Instance { get; private set; }
+    public List<Weapon> weaponList;
+
+    public int weaponSlotUsing = 0;
     
-    [SerializeField] private Weapon[] weapon;
     [SerializeField] private SpriteRenderer attachToBodySpriteRender;
     [SerializeField] private SpriteRenderer playerBulletSpriteRender;
-    [SerializeField] private Bullet[] bulletSprites;
+    [SerializeField] [Range(1, 3)] private int weaponSlots = 2;
 
     private string _input;
     private int _numericInput;
@@ -24,9 +26,11 @@ public class WeaponChange : MonoBehaviour
         {
             Instance = this;
         }
-        
-        currentBulletSprite = bulletSprites[0].bulletImage;
-        _selectedWeapon = weapon[0];
+    }
+    private void Start()
+    {
+        CurrentBulletSprite = weaponList[0].bullet.bulletImage;
+        SelectedWeapon = weaponList[0];
     }
 
     private void Update()
@@ -40,23 +44,25 @@ public class WeaponChange : MonoBehaviour
         
         int.TryParse(_input, out _numericInput);
 
-        if (_numericInput >= 1 && _numericInput <=  weapon.Length)
+        if (_numericInput >= 1 && _numericInput <=  weaponSlots)
         {
-            SwitchWeapon(_numericInput);
+            SwitchWeapon(_numericInput - 1);
+            Debug.Log(weaponSlotUsing);
         }
     }
 
-    private void SwitchWeapon(int numberOfChoosenWeapon)
+    public void SwitchWeapon(int numberOfChoosenWeapon)
     {
-        currentBulletSprite = bulletSprites[numberOfChoosenWeapon - 1].bulletImage;
+        weaponSlotUsing = numberOfChoosenWeapon;
         
-        _selectedWeapon = weapon[numberOfChoosenWeapon - 1];
+        CurrentBulletSprite = weaponList[numberOfChoosenWeapon].bullet.bulletImage;
+        
+        SelectedWeapon = weaponList[numberOfChoosenWeapon];
 
-        attachToBodySpriteRender.sprite = _selectedWeapon.attachToBodySprite;
+        attachToBodySpriteRender.sprite = SelectedWeapon.attachToBodySprite;
 
-        playerBulletSpriteRender.sprite = currentBulletSprite;
+        playerBulletSpriteRender.sprite = CurrentBulletSprite;
       
-        PlayerBulletPool.Instance.ChangeInactiveBulletSprite(currentBulletSprite);
-
+        PlayerBulletPool.Instance.ChangeInactiveBulletSprite(CurrentBulletSprite);
     }
 }

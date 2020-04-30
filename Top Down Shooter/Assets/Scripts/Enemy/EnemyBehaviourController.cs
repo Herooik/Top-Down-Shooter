@@ -8,16 +8,16 @@ public class EnemyBehaviourController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float stoppingDistance = 0.5f;
 
-    private Transform _player;
+    private Transform _playerPosition;
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerPosition = ReferenceContainer.Instance.playerController.transform;
     }
 
     private void Update()
     {
-        if (_player != null)
+        if (_playerPosition != null)
         {
             FollowPlayer();
             LookAtPlayer();
@@ -26,16 +26,16 @@ public class EnemyBehaviourController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (Vector2.Distance(transform.position, _player.position) >= stoppingDistance)
+        if (Vector2.Distance(transform.position, _playerPosition.position) >= stoppingDistance)
         {
             transform.position = Vector2.MoveTowards
-                (transform.position, _player.position, moveSpeed * Time.deltaTime);
+                (transform.position, _playerPosition.position, moveSpeed * Time.deltaTime);
         }
     }
 
     private void LookAtPlayer()
     {
-        var direction = _player.position - transform.position;
+        var direction = _playerPosition.position - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }

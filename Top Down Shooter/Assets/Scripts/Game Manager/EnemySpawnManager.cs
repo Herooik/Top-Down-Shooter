@@ -129,6 +129,4 @@ public class EnemySpawnManager : MonoBehaviour
             EnemyCount++;
         }
     }
-
-    
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121df7173601ec543bae8f14ff3e1f3a, type: 3}
+  m_Name: 2.Revolver
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 11400000, guid: 47f89d3fd2e75e7439c559042bfa9d3d, type: 2}
+  name: Revolver
+  priceInShop: 50
+  damage: 15
+  energyConsumption: 1
+  fireRate: 2
+  bulletSpeed: 2
+  attachToBodySprite: {fileID: 21300000, guid: 22b4b9dcc0c747847b25f4429d3ba704, type: 3}
+  icon: {fileID: 21300000, guid: 83ee492e9bad65d4eb91e31a7fb63722, type: 3}

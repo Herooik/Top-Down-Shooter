@@ -139,7 +139,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1741788175
 BoxCollider2D:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   moveSpeedWhileShooting: 1
-  newRigidbody2D: {fileID: 1402808629742119436}
+  playerRigidbody: {fileID: 1402808629742119436}
   animator: {fileID: 8248005800834502752}
   weaponShooting: {fileID: 8248005799398934459}
   aimTexture: {fileID: 2800000, guid: 0de920991040e7546b8c6936f480c9ea, type: 3}
@@ -200,7 +200,6 @@ MonoBehaviour:
   maxHealth: 200
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
-  currentHealth: 0
 --- !u!114 &814122074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,25 +495,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
-      propertyPath: weapon.Array.size
+      propertyPath: weaponList.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
-      propertyPath: bulletSprites.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
-        type: 3}
-      propertyPath: weapon.Array.data[0]
+      propertyPath: weaponList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e,
+      objectReference: {fileID: 11400000, guid: 8474556876dc8384d91de6fdcbfe3a40,
         type: 2}
     - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
-      propertyPath: weapon.Array.data[1]
+      propertyPath: weaponList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 18f5b28c30bb9b14a9a940e69362df0b,
+      objectReference: {fileID: 11400000, guid: f3ed35b040394d64483192cc6546741a,
         type: 2}
     - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
@@ -527,18 +521,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2107663999576064840, guid: 7f6d5c45736fc0345a3f07f788a72d00,
         type: 3}
-    - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
+    - target: {fileID: 1508732764269311879, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
-      propertyPath: bulletSprites.Array.data[0]
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 11400000, guid: 250ccf17803d1af43b70bbdd474b99d6,
-        type: 2}
-    - target: {fileID: 7387827429942889507, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
+      objectReference: {fileID: 21300000, guid: c13d0aae94e281b4eaeb7b902025c065,
         type: 3}
-      propertyPath: bulletSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: ee8d18252a14e7a46b06e433a4ccfa67,
-        type: 2}
     - target: {fileID: 1508732764269311878, guid: 2e3b3f1a1ab88a04780c4fb5395619dd,
         type: 3}
       propertyPath: firePoint

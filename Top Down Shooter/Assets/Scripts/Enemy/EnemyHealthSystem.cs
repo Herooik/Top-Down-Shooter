@@ -31,8 +31,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
         gameObject.SetActive(false);
         
-        EnemyDropSystem.Instance.DropMedkit(transform.position);
-        EnemyDropSystem.Instance.DropEnergy(transform.position);
+        EnemyDropSystem.Instance.DropPickUps(transform.position);
     }
 
     private void InitializeDeathVFX()

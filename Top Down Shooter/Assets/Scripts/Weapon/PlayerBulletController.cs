@@ -9,13 +9,15 @@ public class PlayerBulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        var enemy = other.GetComponent<EnemyHealthSystem>();
+        
+        if (enemy != null)
         {
             gameObject.SetActive(false);
 
-            _weaponDamage = WeaponChange.Instance._selectedWeapon.damage;
+            _weaponDamage = WeaponChange.Instance.SelectedWeapon.damage;
 
-            other.gameObject.GetComponent<EnemyHealthSystem>().TakeDamage(_weaponDamage);
+            enemy.TakeDamage(_weaponDamage);
         }
     }
 }

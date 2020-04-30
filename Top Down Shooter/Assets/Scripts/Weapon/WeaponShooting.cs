@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class WeaponShooting : MonoBehaviour
@@ -18,6 +19,10 @@ public class WeaponShooting : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         Shoot();
     }
 
@@ -26,10 +31,10 @@ public class WeaponShooting : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= _nextTimeToFire)
         {
             isShooting = true;
-            
-            _nextTimeToFire = Time.time + 1f / weaponChange._selectedWeapon.fireRate;
-            
-            playerEnergySystem.AbsorbEnergy(weaponChange._selectedWeapon.ammoConsumption);
+
+            _nextTimeToFire = Time.time + 1f / weaponChange.SelectedWeapon.fireRate;
+
+            playerEnergySystem.AbsorbEnergy(weaponChange.SelectedWeapon.energyConsumption);
 
             InitializeShoot();
         }
@@ -52,6 +57,6 @@ public class WeaponShooting : MonoBehaviour
        }
 
        var rb = bullet.GetComponent<Rigidbody2D>();
-       rb.AddForce(firePoint.up * -weaponChange._selectedWeapon.bulletSpeed, ForceMode2D.Impulse);
+       rb.AddForce(firePoint.up * -weaponChange.SelectedWeapon.bulletSpeed, ForceMode2D.Impulse);
     }
 }

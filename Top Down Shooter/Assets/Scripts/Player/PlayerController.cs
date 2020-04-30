@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private float moveSpeedWhileShooting = 1f;
 
-    [SerializeField] private Rigidbody2D newRigidbody2D;
+    [SerializeField] private Rigidbody2D playerRigidbody;
     [SerializeField] private Animator animator;
     [SerializeField] private WeaponShooting weaponShooting;
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", true);
         }
         
-        newRigidbody2D.MovePosition(newRigidbody2D.position + _playerMovement * moveSpeed * Time.fixedDeltaTime);
+        playerRigidbody.MovePosition(playerRigidbody.position + _playerMovement * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void SlowDownMovement()
@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerAiming()
     {
         _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var lookDirection = _mousePosition - newRigidbody2D.position;
+        var lookDirection = _mousePosition - playerRigidbody.position;
         var angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg + 90f;
-        newRigidbody2D.rotation = angle;
+        playerRigidbody.rotation = angle;
     }
 }

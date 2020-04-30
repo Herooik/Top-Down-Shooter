@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &141761879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141761880}
+  m_Layer: 0
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141761880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141761879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 725561091}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416818383
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +93,8 @@ Transform:
   - {fileID: 416818384}
   - {fileID: 1922136911}
   - {fileID: 870513168}
+  - {fileID: 141761880}
+  - {fileID: 7495282485198104209}
   m_Father: {fileID: 4669007163781518559}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870513168}
   m_Layer: 0
-  m_Name: Ammo
+  m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,9 +294,39 @@ MonoBehaviour:
   itemsToPool:
   - objectToPool: {fileID: 2107663999576064843, guid: 7f6d5c45736fc0345a3f07f788a72d00,
       type: 3}
-    amountToPool: 5
+    amountToPool: 0
     shouldExpand: 1
     objectContainer: {fileID: 1087213180}
+--- !u!1 &3098456212075244257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7495282485198104209}
+  m_Layer: 0
+  m_Name: Coins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7495282485198104209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3098456212075244257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 725561091}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4614783849057065965
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +393,9 @@ GameObject:
   - component: {fileID: 4669007163781518558}
   - component: {fileID: 4669007163781518552}
   - component: {fileID: 563406989}
+  - component: {fileID: 7559001608921647249}
   - component: {fileID: 27804628}
+  - component: {fileID: 4669007163252243543}
   m_Layer: 0
   m_Name: Object Pool Manager
   m_TagString: Untagged
@@ -407,6 +471,23 @@ MonoBehaviour:
   shouldExpand: 1
   prefabContainter: {fileID: 1922136910}
   _pooledObjects: []
+--- !u!114 &7559001608921647249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4669007163781518557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc62a0ea79a14654da6fdb49b4e2f823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5791471673277299772, guid: a7ec11884e8232b45a9f5f17524c3727, type: 3}
+  amountToPool: 5
+  shouldExpand: 1
+  prefabContainter: {fileID: 3098456212075244257}
+  _pooledObjects: []
 --- !u!114 &27804628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,4 +504,21 @@ MonoBehaviour:
   amountToPool: 5
   shouldExpand: 1
   prefabContainter: {fileID: 870513167}
+  _pooledObjects: []
+--- !u!114 &4669007163252243543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4669007163781518557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949954fc3a1f5bf49a92f76c7bcc2238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1654352283, guid: 6188b6f98f0a2cc48958a3cbe19bf356, type: 3}
+  amountToPool: 5
+  shouldExpand: 1
+  prefabContainter: {fileID: 141761879}
   _pooledObjects: []
