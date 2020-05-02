@@ -89,8 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863e61ec677f1e5439d422c4f07377de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponShopList:
-  - {fileID: 11400000, guid: 75bf800a83f13de4fb0c1b159d8a3c2d, type: 2}
-  - {fileID: 11400000, guid: e81b3e0008c2ed14d8e57b02c26a8f2e, type: 2}
-  - {fileID: 11400000, guid: f3ed35b040394d64483192cc6546741a, type: 2}
+  panelList: []
+  weaponShopList: []
   contentPanel: {fileID: 1870494586308657202}

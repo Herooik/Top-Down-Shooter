@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class WeaponShooting : MonoBehaviour
 {
+    public PlayerController pc;
     [HideInInspector] public bool isShooting = false;
     
     [SerializeField] private Transform firePoint;
@@ -51,8 +52,8 @@ public class WeaponShooting : MonoBehaviour
 
        if (bullet != null)
        {
-           bullet.transform.position = firePoint.transform.position;
            bullet.transform.rotation = firePoint.rotation;
+           bullet.transform.position = firePoint.position;
            bullet.SetActive(true);
        }
 

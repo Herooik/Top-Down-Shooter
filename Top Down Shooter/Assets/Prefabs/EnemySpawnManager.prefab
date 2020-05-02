@@ -186,7 +186,6 @@ MonoBehaviour:
   waveInterval: 10
   waveNumberText: {fileID: 0}
   timeLeftToWaveText: {fileID: 0}
-  enemyCount: 0
 --- !u!1 &4735541646949781767
 GameObject:
   m_ObjectHideFlags: 0

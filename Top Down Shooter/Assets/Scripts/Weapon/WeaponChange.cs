@@ -47,7 +47,6 @@ public class WeaponChange : MonoBehaviour
         if (_numericInput >= 1 && _numericInput <=  weaponSlots)
         {
             SwitchWeapon(_numericInput - 1);
-            Debug.Log(weaponSlotUsing);
         }
     }
 

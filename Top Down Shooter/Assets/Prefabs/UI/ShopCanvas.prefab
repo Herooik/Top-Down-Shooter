@@ -1183,7 +1183,7 @@ PrefabInstance:
     - target: {fileID: 1870494586308657215, guid: 01643c502c50cfd45a0b0acdb6863b48,
         type: 3}
       propertyPath: weaponShopList.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1870494586308657215, guid: 01643c502c50cfd45a0b0acdb6863b48,
         type: 3}
@@ -1214,6 +1214,18 @@ PrefabInstance:
       propertyPath: weaponShopList.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 18f5b28c30bb9b14a9a940e69362df0b,
+        type: 2}
+    - target: {fileID: 1870494586308657215, guid: 01643c502c50cfd45a0b0acdb6863b48,
+        type: 3}
+      propertyPath: weaponShopList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c27bc89e24d51648a51d991029a4aae,
+        type: 2}
+    - target: {fileID: 1870494586308657215, guid: 01643c502c50cfd45a0b0acdb6863b48,
+        type: 3}
+      propertyPath: weaponShopList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 262b925976cb590468df843d6caac251,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01643c502c50cfd45a0b0acdb6863b48, type: 3}

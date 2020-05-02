@@ -11,10 +11,6 @@ public class ShopScrollList : MonoBehaviour
     
     [SerializeField] private List<Weapon> weaponShopList;
     [SerializeField] private Transform contentPanel;
-    //[SerializeField] private Animator scrollShopAnim;
-
-    //private bool isHiddenAnim = true;
-    
 
     private void Start()
     {

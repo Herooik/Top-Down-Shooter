@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121df7173601ec543bae8f14ff3e1f3a, type: 3}
+  m_Name: 7.Rocket Launcher
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 11400000, guid: d87ca2da91898244ea158a72aff80ca8, type: 2}
+  name: Rocket Launcher
+  priceInShop: 2000
+  damage: 100
+  energyConsumption: 15
+  fireRate: 1
+  bulletSpeed: 2
+  attachToBodySprite: {fileID: 21300000, guid: 3579e481af42e3144860b178c1794f41, type: 3}
+  icon: {fileID: 21300000, guid: ec362b4c34efbd347a19e1efc46649a7, type: 3}
