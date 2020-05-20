@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D playerRigidbody;
     [SerializeField] private Animator animator;
-    [SerializeField] private WeaponShooting weaponShooting;
+    [SerializeField] private PlayerShootController playerShootController;
 
     [SerializeField] private Texture2D aimTexture;
 
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void SlowDownMovement()
     {
-        if (weaponShooting.isShooting)
+        if (playerShootController.isShooting)
         {
             moveSpeed = moveSpeedWhileShooting;
         }

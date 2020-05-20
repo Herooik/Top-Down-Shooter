@@ -183,7 +183,7 @@ MonoBehaviour:
   moveSpeedWhileShooting: 1
   playerRigidbody: {fileID: 1402808629742119436}
   animator: {fileID: 8248005800834502752}
-  weaponShooting: {fileID: 8248005799398934459}
+  playerShootController: {fileID: 8248005799398934459}
   aimTexture: {fileID: 2800000, guid: 0de920991040e7546b8c6936f480c9ea, type: 3}
 --- !u!114 &7941355780720732875
 MonoBehaviour:
@@ -215,7 +215,6 @@ MonoBehaviour:
   maxEnergy: 150
   energyBar: {fileID: 0}
   energyText: {fileID: 0}
-  currentEnergy: 0
 --- !u!1 &1402808630006043915
 GameObject:
   m_ObjectHideFlags: 0

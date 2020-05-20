@@ -19,5 +19,6 @@ MonoBehaviour:
   energyConsumption: 15
   fireRate: 1
   bulletSpeed: 2
+  fireSound: {fileID: 8300000, guid: 311f3b1784e8cb44dbb265366cc9b43c, type: 3}
   attachToBodySprite: {fileID: 21300000, guid: 3579e481af42e3144860b178c1794f41, type: 3}
   icon: {fileID: 21300000, guid: ec362b4c34efbd347a19e1efc46649a7, type: 3}

@@ -14,6 +14,9 @@ public class Weapon : ScriptableObject
     public float fireRate;
     public float bulletSpeed;
 
+    public AudioClip fireSound;
+    
     public Sprite attachToBodySprite;
     public Sprite icon;
+    
 }

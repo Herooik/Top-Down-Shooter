@@ -7,40 +7,39 @@ using UnityEngine.UI;
 
 public class PlayerEnergySystem : MonoBehaviour
 {
+    public float CurrentEnergy { get; set; }
+
     [SerializeField] private float maxEnergy = 150f;
-    
     [SerializeField] private Image energyBar;
     [SerializeField] private TextMeshProUGUI energyText;
-    
-    [HideInInspector] public float currentEnergy;
 
     private void Start()
     {
-        currentEnergy = maxEnergy;
+        CurrentEnergy = maxEnergy;
         
-        energyText.text = currentEnergy + "/" + maxEnergy;
+        energyText.text = CurrentEnergy + "/" + maxEnergy;
     }
 
     public void AbsorbEnergy(int energyConsumption)
     {
-        currentEnergy -= energyConsumption;
+        CurrentEnergy -= energyConsumption;
         
-        energyBar.fillAmount = currentEnergy / maxEnergy;
+        energyBar.fillAmount = CurrentEnergy / maxEnergy;
         
-        energyText.text = currentEnergy + "/" + maxEnergy;
+        energyText.text = CurrentEnergy + "/" + maxEnergy;
     }
     
     public void GiveEnergy(float energyAmount)
     {
-        var energyMissing = maxEnergy - currentEnergy;
+        var energyMissing = maxEnergy - CurrentEnergy;
 
         if (energyMissing < energyAmount)
         {
-            currentEnergy += energyMissing;
+            CurrentEnergy += energyMissing;
         }
         else
         {
-            currentEnergy += energyAmount;
+            CurrentEnergy += energyAmount;
         }
 
         UpdateEnergyBar();
@@ -48,8 +47,8 @@ public class PlayerEnergySystem : MonoBehaviour
 
     private void UpdateEnergyBar()
     {
-        energyBar.fillAmount = currentEnergy / maxEnergy;
+        energyBar.fillAmount = CurrentEnergy / maxEnergy;
 
-        energyText.text = currentEnergy + "/" + maxEnergy;
+        energyText.text = CurrentEnergy + "/" + maxEnergy;
     }
 }
